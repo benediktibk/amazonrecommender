@@ -1,5 +1,5 @@
 function [precision] = precisionCalculation(buyValue, treshold)
-    rankings = loadData(buyValue, 'small.mat');
+    rankings = loadData(buyValue, 'load/test.mat');
     productCount = size(rankings, 2);
     trainingData = 0.5;
     neighbourhoodSize = 25;

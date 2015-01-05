@@ -1,12 +1,11 @@
 %% load files
 clear all;
 display('loading data');
-buyValue = 5;
-rankings = loadData(buyValue, 'small.mat');
+buyValue = 2;
+rankings = loadData(buyValue, 'data/test.mat');
 
 %% initialization
 productCount = size(rankings, 2);
-minimalValue = 1e-10;
 trainingData = 0.5;
 neighbourhoodSize = 25;
 trainingIndices = 1:(trainingData*productCount);
