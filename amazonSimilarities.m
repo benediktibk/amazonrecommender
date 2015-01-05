@@ -9,19 +9,15 @@ useAdvancedSimiliarityMeasurement = 0;
 
 %% load files
 display('loading data');
-
 rankings = loadData(buyValue, '../data/small.mat');
 
 %% model building
-
 display('building model');
 tic
 similarityCache = calculateSimilarities(rankings, useAdvancedSimiliarityMeasurement);
 toc
 
-%% ranking estimation
-
+%% recommending
 column_vector = zeros(1, size(rankings,2));
 foldedIndices = crossvalind('Kfold', column_vector, nFolds);
-
 recommender(foldedIndices, nFolds, rankings, similarityCache, neighbourhoodSize, treshold, buyValue)

@@ -5,15 +5,14 @@ function [rankingsEstimated, rankingsCorrect] = estimateRanking(rankings, simila
     rankingsCorrect = rankings(1:userCount, testIndices);
     testProductSimilarities = similarities(:, testIndices);
     testProductSimilaritySums = sum(testProductSimilarities);
-    [nonZeroSumRows, nonZeroSumColumns, nonZeroSums] = find(testProductSimilaritySums > 0);
+    [~, nonZeroSumColumns, nonZeroSums] = find(testProductSimilaritySums > 0);
     nonZeroCount = size(nonZeroSums, 1);
     
     for i = 1:nonZeroCount
         testProductSimilarities(:, nonZeroSumColumns(i)) = testProductSimilarities(:, nonZeroSumColumns(i))./nonZeroSums(i);
     end
     
-    currentRankings = rankings(:, :);
-    estimation = currentRankings*testProductSimilarities;
+    estimation = rankings*testProductSimilarities;
     [rows, columns] = find(estimation > treshold);
     rankingsEstimated = sparse(rows, columns, buyValue, userCount, testIndicesCount);
 end
