@@ -1,5 +1,5 @@
 function [precision] = precisionCalculation(buyValue, treshold)
-    rankings = loadData(buyValue, 'load/test.mat');
+    rankings = loadData(buyValue, 'data/test.mat');
     productCount = size(rankings, 2);
     trainingData = 0.5;
     neighbourhoodSize = 25;
@@ -11,5 +11,5 @@ function [precision] = precisionCalculation(buyValue, treshold)
     
     [truePositive, falsePositive, falseNegative, trueNegative] = calculateMetrics(rankingsCorrect, rankingsEstimated);
     precision = truePositive/(truePositive + falsePositive);
-    display(strcat('treshold',num2str(treshold),', buyValue:',num2str(buyValue),'precision:',num2str(precision)));
+    display(strcat('treshold',num2str(treshold),', buyValue:',num2str(buyValue),', precision:',num2str(precision)));
 end
