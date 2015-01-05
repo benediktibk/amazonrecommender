@@ -10,8 +10,7 @@ function [precision, recall, evaluation_score] = calculateMetrics(correct, estim
     falsePositive = sum(sum(inequalityResult & correct == 0));
     
     precision = truePositive/(truePositive + falsePositive);
-    recall = truePositive/(truePositive + falseNegative);
-    
+    recall = truePositive/(truePositive + falseNegative);    
     
     % Sl – sessions in submitted solution file
     % S - All sessions in the test set
@@ -40,4 +39,3 @@ function [precision, recall, evaluation_score] = calculateMetrics(correct, estim
     
     evaluation_score = sum(evaluation_matrix);
 end
-

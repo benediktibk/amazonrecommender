@@ -5,11 +5,11 @@ nFolds = 5;
 neighbourhoodSize = 25;
 treshold = 2.2;
 buyValue = 0.7125;
-useAdvancedSimiliarityMeasurement = 0;
+useAdvancedSimiliarityMeasurement = 1;
 
 %% load files
 display('loading data');
-rankings = loadData(buyValue, '../data/small.mat');
+rankings = loadData(buyValue, '../data/tiny.mat');
 
 %% model building
 display('building model');
