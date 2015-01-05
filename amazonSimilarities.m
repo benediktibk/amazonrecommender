@@ -23,8 +23,7 @@ toc;
 
 %% checks
 display('check accuracy');
-[truePositive, falsePositive, falseNegative, trueNegative] = calculateMetrics(rankingsCorrect, rankingsEstimated);
-precision = truePositive/(truePositive + falsePositive);
-recall = truePositive/(truePositive + falseNegative);
+[precision, recall] = calculateMetrics(rankingsCorrect, rankingsEstimated);
+
 display(strcat('precision:',num2str(precision)));
 display(strcat('recall:',num2str(recall)));

@@ -9,7 +9,6 @@ function [precision] = precisionCalculation(buyValue, treshold)
     similarityCache = buildModel(rankings, trainingIndices, neighbourhoodSize, 0);
     [rankingsEstimated, rankingsCorrect] = estimateRanking(rankings, similarityCache, testIndices, treshold, buyValue);
     
-    [truePositive, falsePositive, falseNegative, trueNegative] = calculateMetrics(rankingsCorrect, rankingsEstimated);
-    precision = truePositive/(truePositive + falsePositive);
+    [precision, recall] = calculateMetrics(rankingsCorrect, rankingsEstimated);
     display(strcat('treshold',num2str(treshold),', buyValue:',num2str(buyValue),', precision:',num2str(precision)));
 end
