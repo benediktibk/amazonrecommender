@@ -1,4 +1,5 @@
 function [result] = reduceSimilarityCache(similarityCache, trainingIndices, neighbourHoodSize)
+    display('reduce similarity cache');
     n = size(similarityCache, 1);
     trainingVector = sparse(trainingIndices, 1, 1, n, 1);
     result = sparse([], [], [], n, n);

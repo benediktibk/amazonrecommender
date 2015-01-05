@@ -14,10 +14,7 @@ treshold = 1.1;
 
 %% calculation
 tic;
-display('build model');
 similarityCache = buildModel(rankings, trainingIndices, neighbourhoodSize, 0);
-
-display('estimate rankings');
 [rankingsEstimated, rankingsCorrect] = estimateRanking(rankings, similarityCache, testIndices, treshold, buyValue);
 toc;
 
