@@ -23,10 +23,11 @@ function [ precision_avg ] = recommender(foldedIndices, nFolds, rankings, simila
 
         %% checks
         display('check accuracy');
-        [precision(i), recall(i)] = calculateMetrics(rankingsCorrect, rankingsEstimated);
+        [precision(i), recall(i), evaluation_score(i)] = calculateMetrics(rankingsCorrect, rankingsEstimated, buyValue);
 
         display(strcat('Precision:',num2str(precision(i))));
         display(strcat('Recall:',num2str(recall(i))));
+        display(strcat('Evaluation Score:',num2str(evaluation_score(i))));
     end
 
     precision_avg= mean(precision);
