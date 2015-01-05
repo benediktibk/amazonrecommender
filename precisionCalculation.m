@@ -10,5 +10,5 @@ function [precision] = precisionCalculation(buyValue, treshold)
     [rankingsEstimated, rankingsCorrect] = estimateRanking(rankings, similarityCache, testIndices, treshold, buyValue);
     
     [precision, recall] = calculateMetrics(rankingsCorrect, rankingsEstimated);
-    display(strcat('treshold:',num2str(treshold),', buyValue:',num2str(buyValue),', precision:',num2str(precision)));
+    display(strcat('treshold:',num2str(treshold),', buyValue:',num2str(buyValue),', precision:',num2str(precision),', recall:',num2str(recall)));
 end
