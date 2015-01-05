@@ -2,7 +2,7 @@ function [rankingsEstimated, rankingsCorrect] = estimateRanking(rankings, simila
     userCount = size(rankings, 1);
     testIndicesCount = size(testIndices, 2);
     rankingsCorrect = rankings(1:userCount, testIndices);
-    rankingsEstimated = zeros(userCount, testIndicesCount);
+    rankingsEstimated = sparse([], [], [], testIndicesCount, userCount);
     testProductSimilarities = similarities(:, testIndices);
     testProductSimilaritySums = sum(testProductSimilarities);
     
@@ -10,7 +10,9 @@ function [rankingsEstimated, rankingsCorrect] = estimateRanking(rankings, simila
         currentRankings = rankings(user, :);
         estimation = (currentRankings*testProductSimilarities)./testProductSimilaritySums;
         [rows, columns] = find(estimation > treshold);
-        rankingsEstimated(user, columns) = buyValue;
+        rankingsEstimated(columns, user) = buyValue;
     end
+    
+    rankingsEstimated = rankingsEstimated';
 end
 
