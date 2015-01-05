@@ -34,7 +34,7 @@ for i = 1:nFolds
     [~, ~, trainColumnsIndices] = find(trainingIndices' .* (1:size(trainingIndices)));
     
     tic;
-    display('building model cache');
+    display('build model');
     similarityCacheReduced = reduceSimilarityCache(similarityCache, trainingIndices, neighbourhoodSize);
     toc;
     
