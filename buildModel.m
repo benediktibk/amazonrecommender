@@ -1,6 +1,5 @@
 function [similarityCacheReduced] = buildModel(rankings, trainingIndices, neighbourhoodSize, subtractAverageRankings)
-    similarities = calculateSimilarities(rankings, subtractAverageRankings);
-    similarityCache = prepareSimilarityCache(similarities);
+    similarityCache = calculateSimilarities(rankings, subtractAverageRankings);
     similarityCacheReduced = reduceSimilarityCache(similarityCache, trainingIndices, neighbourhoodSize);
 end
 

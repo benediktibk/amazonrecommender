@@ -12,6 +12,5 @@ function [result] = calculateSimilarities(rankings, subtractAverage)
     indices = 1:productCount;
     inverseAbsoluteValues = 1./absoluteValues;
     inverseAbsoluteValuesMatrix = sparse(indices, indices, inverseAbsoluteValues, productCount, productCount);
-    productsReduced = tril(products, -1);
-    result = (productsReduced*inverseAbsoluteValuesMatrix)'*inverseAbsoluteValuesMatrix;
+    result = (products*inverseAbsoluteValuesMatrix)'*inverseAbsoluteValuesMatrix;
 end
