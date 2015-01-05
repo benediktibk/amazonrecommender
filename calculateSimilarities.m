@@ -5,7 +5,10 @@ function [result] = calculateSimilarities(rankings, subtractAverage)
     end
     products = rankings'*rankings;
     absoluteValues = sqrt(diag(products));
-    inverseAbsoluteValues = diag(1./absoluteValues);
+    productCount = size(products, 1);
+    indices = 1:productCount;
+    inverseAbsoluteValues = 1./absoluteValues;
+    inverseAbsoluteValuesMatrix = sparse(indices, indices, inverseAbsoluteValues, productCount, productCount);
     productsReduced = tril(products, -1);
-    result = (productsReduced*inverseAbsoluteValues)'*inverseAbsoluteValues;
+    result = (productsReduced*inverseAbsoluteValuesMatrix)'*inverseAbsoluteValuesMatrix;
 end
