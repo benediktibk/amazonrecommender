@@ -30,7 +30,7 @@ for i = 1:nFolds
     
     tic;
     display('build model');
-    similarityCache = buildModel(rankings, trainColumnsIndices, neighbourhoodSize, 0);
+    similarityCache = buildModel(rankings, sort(trainColumnsIndices), neighbourhoodSize, 0);
     toc;
     
     display(' ')
