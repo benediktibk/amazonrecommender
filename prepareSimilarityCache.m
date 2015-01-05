@@ -1,4 +1,5 @@
 function [result] = prepareSimilarityCache(similarities)
+    display('prepare similarity cache');
     n = size(similarities, 1);
     result = sparse([], [], [], n, n);
     

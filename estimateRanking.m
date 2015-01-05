@@ -1,4 +1,5 @@
 function [rankingsEstimated, rankingsCorrect] = estimateRanking(rankings, similarities, testIndices, treshold, buyValue)
+    display('estimate rankings');
     userCount = size(rankings, 1);
     testIndicesCount = size(testIndices, 2);
     rankingsCorrect = rankings(1:userCount, testIndices);

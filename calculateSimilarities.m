@@ -1,8 +1,11 @@
 function [result] = calculateSimilarities(rankings, subtractAverage)
+    display('calculate similarities');
+    
     if (subtractAverage)
         averageRankings = mean(rankings, 2);
         rankings = bsxfun(@minus, rankings, averageRankings);
     end
+    
     products = rankings'*rankings;
     absoluteValues = sqrt(diag(products));
     productCount = size(products, 1);
